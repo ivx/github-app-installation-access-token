@@ -15,7 +15,8 @@ builds:
       - linux
       - darwin
 archives:
-  - replacements:
+  - format: binary
+    replacements:
       darwin: Darwin
       linux: Linux
       386: i386
