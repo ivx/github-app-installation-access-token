@@ -78,17 +78,17 @@ func createJwtJose(appId string, key string) string {
 }
 
 func getEnvs() (string, string, string) {
-	installationId, ok := os.LookupEnv("INSTALLATION_ID")
+	installationId, ok := os.LookupEnv("GITHUB_INSTALLATION_ID")
 	if !ok {
-		panic("INSTALLATION_ID not set")
+		panic("GITHUB_INSTALLATION_ID not set")
 	}
-	appId, ok := os.LookupEnv("APP_ID")
+	appId, ok := os.LookupEnv("GITHUB_APP_ID")
 	if !ok {
-		panic("APP_ID not set")
+		panic("GITHUB_APP_ID not set")
 	}
-	privateKey, ok := os.LookupEnv("PRIVATE_KEY")
+	privateKey, ok := os.LookupEnv("GITHUB_APP_PRIVATE_KEY")
 	if !ok {
-		panic("PRIVATE_KEY not set")
+		panic("GITHUB_APP_PRIVATE_KEY not set")
 	}
 
 	return installationId, appId, strings.Replace(privateKey, "\\n", "\n", -1)
